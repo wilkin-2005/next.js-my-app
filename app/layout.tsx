@@ -2,7 +2,11 @@
 // Imports
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import Link from "next/link";
+
 import "./globals.css";
+import styles from "./mainNav.module.css";
 
 // Fonts
 const geistSans = Geist({
@@ -21,6 +25,8 @@ export const metadata: Metadata = {
   description: "Oh. Hi. So. How are you holding up? BECAUSE I'M A POTATO.",
 };
 
+
+
 // Root layout function
 export default function RootLayout({
   children,
@@ -29,11 +35,19 @@ export default function RootLayout({
 }>)
 {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="sv" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} >
+      
+      <body className="min-h-full flex flex-col">
+        <header className={styles.header}>
+          <nav>
+            <Link href="/" className={styles.navLink}>Hem</Link>
+            <Link href="/about" className={styles.navLink}>Om oss</Link>
+          </nav>
+        </header>
+
+        {children}
+      </body>
+      
     </html>
   );
 }
