@@ -1,10 +1,12 @@
 import Image from "next/image";
+import styles from "./hero.module.css";
 
 export default function Home() {
   return (
     <main>
 
       {/* Roberts Hero section */}
+{/*       
       <section className="relative min-h-[60vh] flex flex-col justify-center items-center px-4 py-16 bg-radial-[at_50%_45%] from-violet-900/40 from-20% via-cyan-900/20 via-45% to-black to-70%">
         <div className="border-2 border-teal-400/50 bg-teal-400/10 rounded-full overflow-hidden inline-flex items-center justify-center p-4 motion-safe:animate-bounce ">
         <span className="material-symbols material-symbols-filled text-4xl text-teal-400">rocket</span>
@@ -41,23 +43,23 @@ export default function Home() {
           fill
           alt=""
         />
-      </section>
+      </section> */}
 
       {/* Min Hero section */}
-      <section className="relative min-h-[60vh] flex flex-col justify-center items-center px-4 py-16">
-        <div>
-          <h1 className="font-black text-7xl text-balance mb-6">Hejsan React och Next.js!</h1>
-
-          <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consectetur ab omnis, laudantium ipsum praesentium.</p>
-
-          <button type="button">Knapp 1</button>
-          <button type="button">Knapp 2</button>
+      <section className="">
+        <div className={styles.imgGrid}>
+          <img src="https://picsum.photos/700/350?random=1" alt="" />
+          <img src="https://picsum.photos/700/350?random=2" alt="" />
+          <img src="https://picsum.photos/700/350?random=3" alt="" />
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
-          <img src="https://picsum.photos/200/300?random=1" alt="" />
-          <img src="https://picsum.photos/200/300?random=2" alt="" />
-          <img src="https://picsum.photos/200/300?random=3" alt="" />
+        <div>
+          <h1 className={styles.h1}>Hejsan React och Next.js!</h1>
+
+          <p className={styles.p}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consectetur ab omnis, laudantium ipsum praesentium.</p>
+
+          <a className={styles.button}>Knapp 1</a>
+          <a className={styles.button}>Knapp 2</a>
         </div>
       </section>
 
