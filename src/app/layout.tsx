@@ -5,8 +5,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import Link from "next/link";
 
-import "./globals.css";
-import styles from "./mainNav.module.css";
+import "@/src/styles/globals.css";
+import styles from "@/src/styles/mainNav.module.css";
 
 // Fonts
 const geistSans = Geist({
