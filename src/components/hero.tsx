@@ -1,6 +1,12 @@
 import styles from "@/src/components/hero.module.css";
 
-export default function Hero()
+
+interface heroProps {
+  title: string
+}
+
+
+export default function Hero( {title}:heroProps )
 {
     /* Wilmers Hero-sektion */
     return (
@@ -12,7 +18,8 @@ export default function Hero()
         </div>
 
         <div>
-          <h1 className={styles.h1}>Hejsan React och Next.js!</h1>
+          <h1 className={styles.h1}>{title}</h1>
+          {/* Hejsan React och Next.js! */}
 
           <p className={styles.p}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id nisi magna. Vivamus pretium diam at eros suscipit fringilla. Vivamus id felis tortor. Nullam id augue massa. Curabitur laoreet fringilla magna vel vulputate. Sed nec sapien egestas, commodo arcu nec, finibus odio. Aliquam condimentum ante sodales imperdiet tempus. Proin gravida est nec enim porta, nec ultricies magna vestibulum. Aenean non sapien et nunc consequat placerat nec at felis. Sed varius vel metus sed porttitor. Nunc vel ultrices sem.

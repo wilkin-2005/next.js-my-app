@@ -5,7 +5,7 @@ export default function HomePage()
 {
   return (
     <main>
-      <Hero />
+      <Hero title="Hejsan React och Next.js!" />
     </main>
   );
 }

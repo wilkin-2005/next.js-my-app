@@ -17,6 +17,9 @@ All källkod finns i `/src` och alla bilder och andra statiska saker finns i `/p
 
 Filstrukturen är inspirerad av [The Ultimate Guide to Organizing Your Next.js 15 Project Structure](https://www.wisp.blog/blog/the-ultimate-guide-to-organizing-your-nextjs-15-project-structure).
 
+Jag följer namngivningskonventionen för Next.js som kan ses [här](https://www.piyushgambhir.com/blogs/next-js-naming-conventions).
+
+
 ## Versioner av program/mjukvara
 
 * Node.js `v24.16.0`
