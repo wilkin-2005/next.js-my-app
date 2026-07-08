@@ -6,7 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 
 import "@/src/styles/globals.css";
-import styles from "@/src/styles/mainNav.module.css";
+import styles from "@/src/styles/main-nav.module.css";
 
 // Fonts
 const geistSans = Geist({
@@ -40,8 +40,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <header className={styles.header}>
           <nav>
-            <Link href="/" className={styles.navLink}>Hem</Link>
-            <Link href="/about" className={styles.navLink}>Om oss</Link>
+            <Link href="/" className={styles.nav_link}>Hem</Link>
+            <Link href="/about" className={styles.nav_link}>Om oss</Link>
           </nav>
         </header>
 
