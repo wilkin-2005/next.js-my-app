@@ -41,6 +41,7 @@ export default function RootLayout({
         <header className={styles.header}>
           <nav>
             <Link href="/" className={styles.nav_link}>Hem</Link>
+            <Link href="/futurama" className={styles.nav_link} >Futurama-karaktärer</Link>
             <Link href="/about" className={styles.nav_link}>Om oss</Link>
           </nav>
         </header>

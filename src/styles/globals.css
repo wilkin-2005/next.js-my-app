@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+/* Min globala styling */
+
+.h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-align: center;
+    text-wrap: balance;
+    line-height: 1;
+    margin-block: 1.5rem;
+}
