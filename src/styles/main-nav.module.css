@@ -10,7 +10,7 @@
     margin-inline: 0.5rem;
     font-weight: 600;
 
-    &:hover, &:focusactive {
+    &:hover, &:focus-visible {
         color: cornflowerblue;
     }
 }

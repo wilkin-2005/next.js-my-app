@@ -1,11 +1,9 @@
-import styles from "@/src/components/hero.module.css";
-
+import styles from "@/src/components/hero/hero.module.css";
 
 interface heroProps {
   title: string;
   imgIds: number;
 }
-
 
 export default function Hero({ title, imgIds } : heroProps)
 {
@@ -23,7 +21,7 @@ export default function Hero({ title, imgIds } : heroProps)
         </div>
 
         <div>
-          <h1 className={styles.h1}>{title}</h1>
+          <h1 className="h1">{title}</h1>
           {/* Hejsan React och Next.js! */}
 
           <p className={styles.p}>
