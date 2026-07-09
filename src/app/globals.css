@@ -28,11 +28,29 @@ body {
 
 /* Min globala styling */
 
-.h1 {
+.main-header {
     font-size: 4.5rem;
     font-weight: 900;
     text-align: center;
     text-wrap: balance;
     line-height: 1;
     margin-block: 1.5rem;
+}
+
+.h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-block: 1.5rem;
+}
+
+.h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-block-end: 0.5rem;
+    line-height: 1;
+}
+
+p {
+  margin-inline: 3rem;
+  margin-block-end: 1rem;
 }

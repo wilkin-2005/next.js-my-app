@@ -8,7 +8,7 @@ export default function AboutPage()
     return (
         <main>
             <Image src="https://picsum.photos/1920/400?random" alt="" width={1920} height={400} />
-            <h1 className={styles.h1}>Om oss</h1>
+            <h1 className="main-header">Om oss</h1>
             <p className={styles.p}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis nulla eget mi consectetur pellentesque. Nunc pellentesque dolor nec risus eleifend, in luctus ligula ultricies. Suspendisse vitae felis nec eros accumsan condimentum. Praesent facilisis metus sit amet tincidunt pellentesque. Donec vitae magna nisi. Vivamus interdum maximus diam. Curabitur ultricies mi eleifend nibh vehicula, sit amet accumsan ipsum posuere. Curabitur finibus, elit sed molestie malesuada, neque est vehicula lectus, ac porttitor elit enim et libero. In imperdiet fermentum feugiat. Suspendisse rutrum eu elit at tincidunt. Sed pulvinar dictum efficitur. Nunc eros elit, malesuada in faucibus a, aliquet et nulla. In sodales justo ut purus lobortis, non sagittis ex semper. In ullamcorper at neque sit amet sollicitudin.
             </p>
