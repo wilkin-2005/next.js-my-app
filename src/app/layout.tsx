@@ -3,10 +3,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import Link from "next/link";
-
-import "@/src/styles/globals.css";
-import styles from "@/src/styles/main-nav.module.css";
+import "@/src/app/globals.css";
+import MainNav from "@/src/components/main-navigation/main-nav";
 
 // Fonts
 const geistSans = Geist({
@@ -38,13 +36,7 @@ export default function RootLayout({
     <html lang="sv" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} >
       
       <body className="min-h-full flex flex-col">
-        <header className={styles.header}>
-          <nav>
-            <Link href="/" className={styles.nav_link}>Hem</Link>
-            <Link href="/futurama" className={styles.nav_link} >Futurama-karaktärer</Link>
-            <Link href="/about" className={styles.nav_link}>Om oss</Link>
-          </nav>
-        </header>
+        <MainNav />
 
         {children}
       </body>

@@ -1,6 +1,6 @@
 
-import styles from "@/src/styles/futurama.module.css";
-import data from "@/data/futurama-characters.json";
+import styles from "./futurama.module.css";
+import data from "@/src/data/futurama-characters.json";
 import Hero from "@/src/components/hero/hero";
 
 

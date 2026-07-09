@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "@/src/styles/about-us.module.css";
+import styles from "./about.module.css";
 
 
 export default function AboutPage()
