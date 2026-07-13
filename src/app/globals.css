@@ -26,7 +26,7 @@ body {
 }
 
 
-/* Min globala styling */
+/***** Min globala styling *****/
 
 .main-header {
     font-size: 4.5rem;
@@ -36,12 +36,6 @@ body {
     line-height: 1;
     margin-block: 1.5rem;
 }
-
-/* .h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-block: 1.5rem;
-} */
 
 h3 {
     font-size: 2rem;
@@ -53,4 +47,44 @@ h3 {
 p {
   margin-inline: 3rem;
   margin-block-end: 1rem;
+}
+
+
+
+/* 404 not found */
+div.not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  margin-top: 10rem;
+
+  align-items: center;
+
+
+  h2 {
+    font-size: 5rem;
+    font-weight: 800;
+    /* margin-block: 1.5rem; */
+  }
+
+  p {
+    margin-inline: 0;
+    font-size: 2rem;
+  }
+
+  .home-link {
+    padding: 0.75rem 1rem;
+
+    border-radius: 2rem;
+    background-color: black;
+    color: white;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    &:hover, &:focus-visible {
+        color: cornflowerblue;
+    }
+  }
 }
