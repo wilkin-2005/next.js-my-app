@@ -15,7 +15,7 @@ interface characterProps {
 }
 
 // Returnerar innehållet i karaktärens kort
-function CharacterCard({ name, imageUrl, status }: characterProps)
+function CharacterCard({ id, name, imageUrl }: characterProps)
 {
     return(
         <div className={styles.div_card}>
@@ -25,7 +25,7 @@ function CharacterCard({ name, imageUrl, status }: characterProps)
                 imageUrl &&
                     <img alt="" src={imageUrl} width={400} height={352} />
             }
-            <a href="https://futuramaapi.com/" target="_blank">Läs mer...</a>
+            <a href={`futurama/character/${id}`}>Läs mer...</a>
 
         </div>
     );
@@ -46,7 +46,7 @@ export default function FuturamaPage()
                     {
                             data.items.map((character) => (
                                 <li key={character.id}>
-                                    <CharacterCard name={character.name} imageUrl={character.image} status={character.status} />
+                                    <CharacterCard id={character.id} name={character.name} imageUrl={character.image} status={character.status} />
                                 </li>
                             ))
                     }
