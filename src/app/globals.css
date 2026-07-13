@@ -37,13 +37,13 @@ body {
     margin-block: 1.5rem;
 }
 
-.h2 {
+/* .h2 {
     font-size: 3rem;
     font-weight: 700;
     margin-block: 1.5rem;
-}
+} */
 
-.h3 {
+h3 {
     font-size: 2rem;
     font-weight: 700;
     margin-block-end: 0.5rem;

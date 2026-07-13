@@ -17,29 +17,16 @@ interface characterProps {
 // Returnerar innehållet i karaktärens kort
 function CharacterCard({ name, imageUrl, status }: characterProps)
 {
-    let statusClass: string = ``;
-
-    if (status === "ALIVE") {
-        statusClass = "status-alive";
-    }
-    else if (status === "DEAD") {
-        statusClass = "status-dead";
-    }
-    else if (status === "UNKNOWN") {
-        statusClass = "status-unknown";
-    }
-
     return(
-        <div className={
-            styles.div_card
-            
-            }>
-            <h3 className={styles.h3} > Namn: <span> {name} </span> </h3>
+        <div className={styles.div_card}>
+
+            <h3> Namn: <span> {name} </span> </h3>
             {
                 imageUrl &&
                     <img alt="" src={imageUrl} width={400} height={352} />
             }
             <a href="https://futuramaapi.com/" target="_blank">Läs mer...</a>
+
         </div>
     );
 }
@@ -53,9 +40,9 @@ export default function FuturamaPage()
             <Hero title="Futurama" imgIds={2} />
 
             <section className={styles.margin} aria-labelledby="characters-header">
-                <h2 id="characters-header" className={styles.h2}> Karaktärer </h2>
+                <h2 id="characters-header" className={styles.heading2}> Karaktärer: </h2>
 
-                <ul className={styles.ul}>
+                <ul className={styles.card_grid}>
                     {
                             data.items.map((character) => (
                                 <li key={character.id}>
