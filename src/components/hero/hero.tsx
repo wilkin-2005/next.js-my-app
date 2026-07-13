@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 import "@/src/app/globals.css";
 import styles from "@/src/components/hero/hero.module.css";
 
@@ -14,9 +14,9 @@ export default function Hero({ title, imgIds } : heroProps)
       <section className="">
         <div className={styles.imgGrid}>
           {/* imgIds gör att det inte blir samma bilder på de olika Hero:s som finns på olika sidor. */}
-          <img alt="" src={"https://picsum.photos/700/350?random=" + 11*imgIds} />
-          <img alt="" src={"https://picsum.photos/700/350?random=" + 21*imgIds} />
-          <img alt="" src={"https://picsum.photos/700/350?random=" + 31*imgIds} />
+          <Image src={"https://picsum.photos/700/350?random=" + 11*imgIds} width={700} height={350} alt="" />
+          <Image src={"https://picsum.photos/700/350?random=" + 21*imgIds} width={700} height={350} alt="" />
+          <Image src={"https://picsum.photos/700/350?random=" + 31*imgIds} width={700} height={350} alt="" />
         </div>
 
         <div>
