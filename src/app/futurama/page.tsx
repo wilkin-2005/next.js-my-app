@@ -1,7 +1,7 @@
 
 import styles from "./futurama.module.css";
-import data from "@/src/data/futurama-characters.json";
 import Hero from "@/src/components/hero/hero";
+import { getCharacters, getCharactersREST } from "@/src/data/futurama-characters";
 
 
 interface characterProps {
@@ -33,8 +33,13 @@ function CharacterCard({ id, name, imageUrl }: characterProps)
 
 
 // Futurama-sidans funktion
-export default function FuturamaPage()
+export default async function FuturamaPage()
 {
+    const { items: characters } = getCharacters();
+
+    // temporary below
+    const RESTitems = await getCharactersREST();
+
     return (
         <main>
             <Hero title="Futurama" imgIds={2} />
@@ -44,11 +49,11 @@ export default function FuturamaPage()
 
                 <ul className={styles.card_grid}>
                     {
-                            data.items.map((character) => (
-                                <li key={character.id}>
-                                    <CharacterCard id={character.id} name={character.name} imageUrl={character.image} status={character.status} />
-                                </li>
-                            ))
+                        characters.map((char) => (
+                            <li key={char.id}>
+                                <CharacterCard id={char.id} name={char.name} imageUrl={char.image} status={char.status} />
+                            </li>
+                        ))
                     }
                 </ul>
             </section>

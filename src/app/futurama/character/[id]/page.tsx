@@ -1,10 +1,7 @@
-import { notFound } from "next/navigation";
-import Image from "next/image";
 
 import styles from "@/src/app/futurama/futurama.module.css";
-import data from "@/src/data/futurama-characters.json";
-import { Cagliostro } from "next/font/google";
-import { symlink } from "fs";
+import { notFound } from "next/navigation";
+import { getCharacterById } from "@/src/data/futurama-characters";
 
 
 interface characterProps {
@@ -64,7 +61,7 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
         notFound();
     }
 
-    const character = data.items.find((character) => character.id === idNr);
+    const character = getCharacterById(idNr);
 
     if (!character) {
         notFound();
@@ -78,6 +75,7 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
             <a href="/futurama" className={styles.go_back} >Backa till alla karaktärer</a>
 
             <article className={styles.character_section}>
+
                 <div> {
                     character.image &&
                     <img alt="" src={character.image} width={800} height={600} />
@@ -92,6 +90,7 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
                     <p><b>Art:</b> {translatedProps.species}</p>
                     <p><b>Skapad:</b> {translatedProps.createdAt}</p>
                 </div>
+
             </article>
         </main>
     );
