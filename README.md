@@ -3,15 +3,19 @@
 
 Första Next.js projektet jag skapade när vi skulle lära oss Next.js under det momentet på Frontendutvecklare-utbildningen på Lexicon.
 
+**Lärarens Github repo:** https://github.com/Lexicon-Utbildning-Front-end-2026/nextjs-intro
+
 ## Filstruktur
 
 All källkod finns i `/src` och alla bilder och andra statiska saker finns i `/public`
 
-```bash
+``` bash
 ├── src/
 │   ├── app/
+│   │   ├── about/
+│   │   └── futurama/
 │   ├── components/
-│   └── styles/
+│   └── data/
 └── public/
 ```
 
@@ -24,12 +28,13 @@ Jag följer namngivningskonventionen för Next.js som kan ses [här](https://www
 
 * Node.js `v24.16.0`
 * npm `11.18.0`
-* Typesript `Version 5.9.3`
-* Next.js `16.2.10`
+* TypeScript `Version 5.9.3`
 * React `19.2.4`
+* Next.js `16.2.10`
+
 
 ## Öppna sidan lokalt
 
 Kör kommandot `npm run dev` för att starta utvecklingsservern.
 
-Öppna [http://localhost:3000](http://localhost:3000) i webbläsaren för att se hemsidan.
+Öppna http://localhost:3000 i webbläsaren för att se hemsidan.
