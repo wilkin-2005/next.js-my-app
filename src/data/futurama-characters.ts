@@ -1,5 +1,6 @@
 
 import data from "./futurama-characters.json";
+import { formatCharacterDate } from "@/src/lib/util";
 
 export interface characterProps {
     id?: number;
@@ -16,7 +17,8 @@ export interface characterProps {
 export function translateCharacterProps(char: characterProps): characterProps
 {
     // Översätter "gender" till svenska
-    let genderProp;
+    let genderProp: string | undefined;
+    
     switch (char.gender?.toUpperCase()) {
         case "MALE":
             genderProp = "manlig";
@@ -32,15 +34,70 @@ export function translateCharacterProps(char: characterProps): characterProps
         break;
     }
 
-    // Kvar att översätta: "status", "species" och "createdAt"
-    // Skapa och använd en utility-funktion för "createdAt"
+    // Översätter "status" till svenska
+    let statusProp: string | undefined;
+
+    switch (char.status?.toUpperCase()) {
+        case "ALIVE":
+            statusProp = "lever";
+        break;
+        case "DEAD":
+            statusProp = "död";
+        break;
+        case "UNKNOWN":
+            statusProp = "okänt";
+        break;
+        default:
+            statusProp = char.status;
+        break;
+    }
+
+    // Översätter "species" till svenska
+    let speciesProp: string | undefined;
+
+    // human, robot, head, alien, mutant, monster, unknown
+
+    switch (char.species?.toUpperCase()) {
+        case "HUMAN":
+            speciesProp = "människa";
+        break;
+        case "ROBOT":
+            speciesProp = "robot";
+        break;
+        case "HEAD":
+            speciesProp = "huvud";
+            // "Gerbil took the top head."
+        break;
+        case "ALIEN":
+            speciesProp = "alien/utomjording";
+        break;
+        case "MUTANT":
+            speciesProp = "mutant";
+        break;
+        case "MONSTER":
+            speciesProp = "monster";
+        break;
+        case "UNKNOWN":
+            speciesProp = "okänt";
+        break;
+        default:
+            speciesProp = char.species;
+        break;
+    }
+
+    // Ändrar "createdAt" datumet till något mer läsbart
+    let createdAt: string;
+    formatCharacterDate();
+
+
+    // Kvar att översätta: och "createdAt"
 
     return {
         id: char.id,
         name: char.name,
         gender: genderProp,
-        status: char.status,
-        species: char.species,
+        status: statusProp,
+        species: speciesProp,
         createdAt: char.createdAt,
         image: char.image
     };

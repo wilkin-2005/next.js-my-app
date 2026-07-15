@@ -35,7 +35,7 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
                 } </div>
 
                 <div>
-                    <h2 className={styles.heading2}>Karaktär:</h2>
+                    <h2 className={styles.heading2} > {translatedProps.name} </h2>
                     
                     <p><b>Namn:</b> {translatedProps.name}</p>
                     <p><b>Kön:</b> {translatedProps.gender}</p>

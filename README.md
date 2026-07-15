@@ -3,7 +3,9 @@
 
 Första Next.js projektet jag skapade när vi skulle lära oss Next.js under det momentet på Frontendutvecklare-utbildningen på Lexicon.
 
-**Lärarens Github repo:** https://github.com/Lexicon-Utbildning-Front-end-2026/nextjs-intro
+**Det API vi använde:** [Futurama API](https://futuramaapi.com/)
+
+**Lärarens Github-repo med kod:** https://github.com/Lexicon-Utbildning-Front-end-2026/nextjs-intro
 
 ## Filstruktur
 
