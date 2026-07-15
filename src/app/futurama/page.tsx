@@ -1,21 +1,11 @@
 
 import styles from "./futurama.module.css";
 import Hero from "@/src/components/hero/hero";
-import { getCharacters, getCharactersREST } from "@/src/data/futurama-characters";
+import { characterProps, getCharactersREST } from "@/src/data/futurama-characters";
 
-
-interface characterProps {
-    id?: number;
-    name: string;
-    gender?: string;
-    status?: string;
-    species?: string;
-    createdAt?: string;
-    imageUrl: string | null;
-}
 
 // Returnerar innehållet i karaktärens kort
-function CharacterCard({ id, name, imageUrl }: characterProps)
+function CharacterCard({ id, name, image: imageUrl }: characterProps)
 {
     return(
         <div className={styles.div_card}>
@@ -35,10 +25,7 @@ function CharacterCard({ id, name, imageUrl }: characterProps)
 // Futurama-sidans funktion
 export default async function FuturamaPage()
 {
-    const { items: characters } = getCharacters();
-
-    // temporary below
-    const RESTitems = await getCharactersREST();
+    const characters: characterProps[] = await getCharactersREST();
 
     return (
         <main>
@@ -51,7 +38,7 @@ export default async function FuturamaPage()
                     {
                         characters.map((char) => (
                             <li key={char.id}>
-                                <CharacterCard id={char.id} name={char.name} imageUrl={char.image} status={char.status} />
+                                <CharacterCard id={char.id} name={char.name} image={char.image} status={char.status} />
                             </li>
                         ))
                     }
