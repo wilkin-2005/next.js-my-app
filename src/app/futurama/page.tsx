@@ -35,12 +35,16 @@ export default async function FuturamaPage( { searchParams }: {
 
     const response: CharacterResponse = await getCharactersREST(currentPage);
 
+    console.log("response.pages == " + response.pages);
+
     return (
         <main>
             <Hero title="Futurama" imgIds={2} />
 
             <section className={styles.margin} aria-labelledby="characters-header">
-                <h2 id="characters-header" className={styles.heading2}> Karaktärer: </h2>
+                <h2 id="characters-header" className={styles.heading2}> Karaktärer </h2>
+
+                <Pagination page={currentPage} pagesAmount={response.pages} />
 
                 <ul className={styles.card_grid}>
                     {
@@ -52,7 +56,7 @@ export default async function FuturamaPage( { searchParams }: {
                     }
                 </ul>
 
-                <Pagination page={currentPage} />                
+                <Pagination page={currentPage} pagesAmount={response.pages} />
                
             </section>
 
