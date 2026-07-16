@@ -2,6 +2,7 @@
 import styles from "./futurama.module.css";
 import Hero from "@/src/components/hero/hero";
 import { characterProps, getCharactersREST } from "@/src/data/futurama-characters";
+import next from "next";
 
 
 // Returnerar innehållet i karaktärens kort
@@ -22,10 +23,13 @@ function CharacterCard({ id, name, image: imageUrl }: characterProps)
 }
 
 
+
 // Futurama-sidans funktion
 export default async function FuturamaPage()
 {
-    const characters: characterProps[] = await getCharactersREST();
+    let currentPage = 1;
+
+    const characters: characterProps[] = await getCharactersREST(currentPage);
 
     return (
         <main>
@@ -43,6 +47,12 @@ export default async function FuturamaPage()
                         ))
                     }
                 </ul>
+
+                {/*
+                <button className={styles.button_main} > Föregående sida </button>
+
+                <button className={styles.button_main} > Nästa sida </button>
+                */}
             </section>
 
         </main>

@@ -21,8 +21,12 @@ export function formatCurrentDate(): string
 
 
 // Gör om värdet i "createdAt" som kommer med karaktärerna från Futurama APIet.
-export function formatCharacterDate(): string
+export function formatCharacterDate(oldDate: string | undefined): string
 {
-
-    return ``;
+    if (oldDate !== undefined) {
+        return oldDate;
+    }
+    else {
+        return "";
+    }
 }

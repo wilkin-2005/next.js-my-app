@@ -25,7 +25,7 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
 
     return(
         <main>
-            <a href="/futurama" className={styles.go_back} >Backa till alla karaktärer</a>
+            <a href="/futurama" className={styles.button_main} >Backa till alla karaktärer</a>
 
             <article className={styles.character_section}>
 

@@ -86,8 +86,8 @@ export function translateCharacterProps(char: characterProps): characterProps
     }
 
     // Ändrar "createdAt" datumet till något mer läsbart
-    let createdAt: string;
-    formatCharacterDate();
+    let createdAtProp: string;
+    createdAtProp = formatCharacterDate(char.createdAt);
 
 
     // Kvar att översätta: och "createdAt"
@@ -121,11 +121,16 @@ export function getCharacterById(id: number) {
 
 
 // Ger ut datan med Futurama-karaktärerna från Futurama APIt. Använder sig av REST.
-export async function getCharactersREST(): Promise<characterProps[]>
+export async function getCharactersREST(page = 1, size = 20): Promise<characterProps[]>
 {
-    // https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc&page=1&size=50
+    // https://futuramaapi.com/api/characters
+    let url = new URL("https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc");
 
-    const fetchedData = await fetch("https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc&page=1&size=50");
+    url.searchParams.append( "page", String(page) );
+    url.searchParams.append( "size", String(size) );
+
+
+    const fetchedData = await fetch(url);
     const jsonData = await fetchedData.json();
 
     return jsonData.items;
