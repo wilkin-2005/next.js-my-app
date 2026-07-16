@@ -1,12 +1,12 @@
 
 import styles from "./futurama.module.css";
 import Hero from "@/src/components/hero/hero";
-import { characterProps, getCharactersREST } from "@/src/data/futurama-characters";
-import next from "next";
+import Pagination from "@/src/components/pagination/pagination";
+import { CharacterProps, CharacterResponse, getCharactersREST } from "@/src/data/futurama-characters";
 
 
 // Returnerar innehållet i karaktärens kort
-function CharacterCard({ id, name, image: imageUrl }: characterProps)
+function CharacterCard({ id, name, image: imageUrl }: CharacterProps)
 {
     return(
         <div className={styles.div_card}>
@@ -25,11 +25,15 @@ function CharacterCard({ id, name, image: imageUrl }: characterProps)
 
 
 // Futurama-sidans funktion
-export default async function FuturamaPage()
+export default async function FuturamaPage( { searchParams }: {
+    searchParams: Promise<{ [key: string]: string | undefined }>
+    })
 {
-    let currentPage = 1;
+    const { page = "1" } = await searchParams;
 
-    const characters: characterProps[] = await getCharactersREST(currentPage);
+    const currentPage: number = (Number(page)) ? Number(page) : 1
+
+    const response: CharacterResponse = await getCharactersREST(currentPage);
 
     return (
         <main>
@@ -40,7 +44,7 @@ export default async function FuturamaPage()
 
                 <ul className={styles.card_grid}>
                     {
-                        characters.map((char) => (
+                        response.items.map((char) => (
                             <li key={char.id}>
                                 <CharacterCard id={char.id} name={char.name} image={char.image} status={char.status} />
                             </li>
@@ -48,11 +52,8 @@ export default async function FuturamaPage()
                     }
                 </ul>
 
-                {/*
-                <button className={styles.button_main} > Föregående sida </button>
-
-                <button className={styles.button_main} > Nästa sida </button>
-                */}
+                <Pagination page={currentPage} />                
+               
             </section>
 
         </main>

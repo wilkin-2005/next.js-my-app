@@ -2,7 +2,7 @@
 import data from "./futurama-characters.json";
 import { formatCharacterDate } from "@/src/lib/util";
 
-export interface characterProps {
+export interface CharacterProps {
     id?: number;
     name: string;
     gender?: string;
@@ -13,8 +13,17 @@ export interface characterProps {
 }
 
 
+export interface CharacterResponse {
+    items: CharacterProps[];
+    page: number;
+    pages: number;
+    size: number;
+    total: number;
+}
+
+
 // Översätter karaktärens till svenska för att inte behöva visas på engelska
-export function translateCharacterProps(char: characterProps): characterProps
+export function translateCharacterProps(char: CharacterProps): CharacterProps
 {
     // Översätter "gender" till svenska
     let genderProp: string | undefined;
@@ -121,7 +130,7 @@ export function getCharacterById(id: number) {
 
 
 // Ger ut datan med Futurama-karaktärerna från Futurama APIt. Använder sig av REST.
-export async function getCharactersREST(page = 1, size = 20): Promise<characterProps[]>
+export async function getCharactersREST(page = 1, size = 20): Promise<CharacterResponse>
 {
     // https://futuramaapi.com/api/characters
     let url = new URL("https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc");
@@ -133,12 +142,14 @@ export async function getCharactersREST(page = 1, size = 20): Promise<characterP
     const fetchedData = await fetch(url);
     const jsonData = await fetchedData.json();
 
-    return jsonData.items;
+    console.log(jsonData);
+
+    return jsonData;
 }
 
 
 // Ger ut en enda Futurama-karaktär med ett visst ID. Använder sig av REST.
-export async function getCharacterByIdREST(id: number): Promise<characterProps>
+export async function getCharacterByIdREST(id: number): Promise<CharacterProps>
 {
     // https://futuramaapi.com/api/characters/0
     const fetchedData = await fetch(`https://futuramaapi.com/api/characters/${id}`);

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "@/src/app/globals.css";
-import styles from "@/src/components/hero/hero.module.css";
+import styles from "./hero.module.css";
 
 interface heroProps {
   title: string;

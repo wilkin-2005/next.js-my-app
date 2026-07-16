@@ -1,7 +1,7 @@
 
 import styles from "@/src/app/futurama/futurama.module.css";
 import { notFound } from "next/navigation";
-import { characterProps, translateCharacterProps, getCharacterByIdREST } from "@/src/data/futurama-characters";
+import { CharacterProps, translateCharacterProps, getCharacterByIdREST } from "@/src/data/futurama-characters";
 
 
 // Karaktärssidans funktion
@@ -20,12 +20,12 @@ export default async function CharacterPage(  { params }: { params: Promise<{ id
         notFound();
     }
 
-    const translatedProps: characterProps = translateCharacterProps(character);
+    const translatedProps: CharacterProps = translateCharacterProps(character);
 
 
     return(
         <main>
-            <a href="/futurama" className={styles.button_main} >Backa till alla karaktärer</a>
+            <a href="/futurama" className={styles.go_back} >Backa till alla karaktärer</a>
 
             <article className={styles.character_section}>
 

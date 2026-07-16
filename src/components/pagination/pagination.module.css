@@ -1,0 +1,25 @@
+
+
+.pagination_div {
+    margin-block: 1rem;
+    /* background-color: pink; */
+}
+
+
+.button_main {
+    display: inline-block;
+    margin-inline: 3rem;
+    margin-block: 1rem;
+    padding: 0.75rem 1rem;
+
+    border-radius: 2rem;
+    background-color: black;
+    color: white;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &:hover, &:focus-visible {
+        color: cornflowerblue;
+    }
+}
