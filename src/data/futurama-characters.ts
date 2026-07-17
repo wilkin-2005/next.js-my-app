@@ -22,7 +22,46 @@ export interface CharacterResponse {
 }
 
 
-// Översätter karaktärens till svenska för att inte behöva visas på engelska
+
+// Ger ut datan med Futurama-karaktärerna från den lokala json-filen.
+export function getCharacters() {
+    return data;
+}
+
+
+// Ger ut en enda Futurama-karaktär med ett visst ID, plockad från den lokala json-filen.
+export function getCharacterById(id: number) {
+    return data.items.find( (character) => character.id === id );
+}
+
+
+
+// Ger ut datan med Futurama-karaktärerna från Futurama APIt. Använder sig av REST.
+export async function getCharactersREST(page = 1, size = 20): Promise<CharacterResponse>
+{
+    let url = new URL("https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc");
+
+    url.searchParams.append( "page", String(page) );
+    url.searchParams.append( "size", String(size) );
+
+    const fetchedData = await fetch(url);
+    const jsonData = await fetchedData.json();
+
+    return jsonData;
+}
+
+
+// Ger ut en enda Futurama-karaktär med ett visst ID. Använder sig av REST.
+export async function getCharacterByIdREST(id: number): Promise<CharacterProps>
+{
+    const fetchedData = await fetch(`https://futuramaapi.com/api/characters/${id}`);
+
+    return await fetchedData.json();
+}
+
+
+
+// Översätter karaktärens props till svenska för att inte behöva visas på engelska
 export function translateCharacterProps(char: CharacterProps): CharacterProps
 {
     // Översätter "gender" till svenska
@@ -49,6 +88,7 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
     switch (char.status?.toUpperCase()) {
         case "ALIVE":
             statusProp = "lever";
+            // "Still alive"
         break;
         case "DEAD":
             statusProp = "död";
@@ -64,8 +104,6 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
     // Översätter "species" till svenska
     let speciesProp: string | undefined;
 
-    // human, robot, head, alien, mutant, monster, unknown
-
     switch (char.species?.toUpperCase()) {
         case "HUMAN":
             speciesProp = "människa";
@@ -75,7 +113,7 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
         break;
         case "HEAD":
             speciesProp = "huvud";
-            // "Gerbil took the top head."
+            // "Gerbil took the top head"
         break;
         case "ALIEN":
             speciesProp = "alien/utomjording";
@@ -85,6 +123,7 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
         break;
         case "MONSTER":
             speciesProp = "monster";
+            // "For science. You monster."
         break;
         case "UNKNOWN":
             speciesProp = "okänt";
@@ -94,12 +133,10 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
         break;
     }
 
-    // Ändrar "createdAt" datumet till något mer läsbart
+    // Ska ändra "createdAt" datumet till något mer läsbart. Gör dock ännu inget.
     let createdAtProp: string;
     createdAtProp = formatCharacterDate(char.createdAt);
 
-
-    // Kvar att översätta: och "createdAt"
 
     return {
         id: char.id,
@@ -110,49 +147,4 @@ export function translateCharacterProps(char: CharacterProps): CharacterProps
         createdAt: char.createdAt,
         image: char.image
     };
-}
-
-
-
-// Ger ut datan med Futurama-karaktärerna från den lokala json-filen.
-export function getCharacters() {
-    console.warn("Använder den lokala JSON-filen");
-    return data;
-}
-
-
-// Ger ut en enda Futurama-karaktär med ett visst ID, plockad från den lokala json-filen.
-export function getCharacterById(id: number) {
-    console.warn("Använder den lokala JSON-filen");
-    return data.items.find( (character) => character.id === id );
-}
-
-
-
-// Ger ut datan med Futurama-karaktärerna från Futurama APIt. Använder sig av REST.
-export async function getCharactersREST(page = 1, size = 20): Promise<CharacterResponse>
-{
-    // https://futuramaapi.com/api/characters
-    let url = new URL("https://futuramaapi.com/api/characters?orderBy=id&orderByDirection=asc");
-
-    url.searchParams.append( "page", String(page) );
-    url.searchParams.append( "size", String(size) );
-
-
-    const fetchedData = await fetch(url);
-    const jsonData = await fetchedData.json();
-
-    console.log(jsonData);
-
-    return jsonData;
-}
-
-
-// Ger ut en enda Futurama-karaktär med ett visst ID. Använder sig av REST.
-export async function getCharacterByIdREST(id: number): Promise<CharacterProps>
-{
-    // https://futuramaapi.com/api/characters/0
-    const fetchedData = await fetch(`https://futuramaapi.com/api/characters/${id}`);
-
-    return await fetchedData.json();
 }

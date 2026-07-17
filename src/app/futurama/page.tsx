@@ -44,7 +44,7 @@ export default async function FuturamaPage( { searchParams }: {
             <section className={styles.margin} aria-labelledby="characters-header">
                 <h2 id="characters-header" className={styles.heading2}> Karaktärer </h2>
 
-                <Pagination page={currentPage} pagesAmount={response.pages} />
+                <Pagination page={currentPage} pagesAmount={response.pages} showPageNr={false} />
 
                 <ul className={styles.card_grid}>
                     {
@@ -56,10 +56,9 @@ export default async function FuturamaPage( { searchParams }: {
                     }
                 </ul>
 
-                <Pagination page={currentPage} pagesAmount={response.pages} />
-               
+                <Pagination page={currentPage} pagesAmount={response.pages} showPageNr={true} />
             </section>
-
+            
         </main>
     );
 }

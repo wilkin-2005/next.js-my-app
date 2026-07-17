@@ -64,17 +64,6 @@
         }
     }
 }
-/*
-.status-alive {
-    background-color: oklch(55.203% 0.12339 157.038);
-}
-.status-dead {
-    background-color: oklch(59.153% 0.20203 21.222);
-}
-.status-unknown {
-    background-color: oklch(55.754% 0.01655 244.997);
-}
-*/
 
 
 /* Infosida för en karaktär: */
@@ -98,12 +87,11 @@
 
 .character_section {
     display: flex;
-
+    
     img {
+        max-width: 800px;
         margin-inline: 3rem;
         border-radius: 2rem;
-
-        max-width: 800px;
     }
 
     p {

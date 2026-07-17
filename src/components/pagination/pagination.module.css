@@ -1,8 +1,8 @@
 
-
 .pagination_div {
     display: flex;
     gap: 1rem;
+    align-items: center;
 
     margin-block: 1rem;
     padding: 1rem;
@@ -15,8 +15,7 @@
         width: 100%;
     }
 
-    a {
-        /*button-main*/
+    a, Link {
         padding: 0.75rem 1rem;
 
         border-radius: 1rem;
@@ -30,10 +29,12 @@
         &:hover, &:focus-visible {
             color: cornflowerblue;
         }
-
-        &.btn-disabled {
-            background-color: red;
-            color: gray;
-        }
     }
+}
+
+.pages {
+    margin-block: 1rem;
+
+    font-size: 1.2rem;
+    font-weight: 700;
 }

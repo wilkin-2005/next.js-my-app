@@ -1,27 +1,41 @@
 
+import Link from "next/link";
 import styles from "./pagination.module.css";
 
+interface paginationProps {
+    page: number;
+    pagesAmount: number;
+    showPageNr: boolean;
+}
 
-export default function Pagination( { page, pagesAmount }: { page: number, pagesAmount: number } )
+export default function Pagination( { page, pagesAmount, showPageNr }: paginationProps )
 {
     return (
-        <div className={styles.pagination_div}>
-            <a href={`futurama/?page=${1}`} className="button-main" > Första sidan </a>
+        <section aria-label="Pagination">
+            <div className={styles.pagination_div}>
+                <Link href={`futurama/?page=${1}`} > Första sidan </Link>
 
-            <a href={`futurama/?page=${page-1}`} className="button-main" > Föregående sida </a>
+                <Link href={`futurama/?page=${page-1}`} > Föregående sida </Link>
 
-            <span className={styles.middle_splitter} ></span>
+                <span className={styles.middle_splitter} ></span>
+
+                {/* Hindrar användaren från att klicka vidare till nästa sida när det inte finns någon nästa sida */}
+                {
+                    page < pagesAmount &&
+                    <Link href={`futurama/?page=${page+1}`} > Nästa sida </Link>
+                }
+                {
+                    page >= pagesAmount &&
+                    <Link href={`futurama/?page=${page}`} > Nästa sida </Link>
+                }
+
+                <Link href={`futurama/?page=${pagesAmount}`} > Sista sidan </Link>
+            </div>
 
             {
-                page < pagesAmount &&
-                <a href={`futurama/?page=${page+1}`} className="button-main" > Nästa sida </a>
+                showPageNr &&
+                <p className={styles.pages} > {`Sida ${page} av ${pagesAmount}`} </p>
             }
-            {
-                page >= pagesAmount &&
-                <a href={`futurama/?page=${page}`} className="button-main btn-disabled" > Nästa sida </a>
-            }
-
-            <a href={`futurama/?page=${pagesAmount}`} className="button-main" > Sista sidan </a>
-        </div>
+        </section>
     );
 }
